@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kj.fmsc.dao.UserDAO">
+
+    <insert id="insertUser" parameterType="com.kj.fmsc.entity.User" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO user (user_name, user_pwd, user_realname, user_img)
+        VALUES (#{userName}, #{userPwd}, #{userRealname}, #{userImg})
+    </insert>
+
+    <select id="countByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM user WHERE user_name = #{userName}
+    </select>
+
+</mapper>
